@@ -1,0 +1,9 @@
+{
+  "name": "lisp-tool",
+  "version": "1.0.0",
+  "description": "lisp的常用工具集",
+  "main": "index.js",
+  "repository": "git@github.com:littlelake/lisp-tool.git",
+  "author": "lisp <610031525@qq.com>",
+  "license": "MIT"
+}
