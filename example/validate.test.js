@@ -16,6 +16,9 @@ var test = {
   },
   changeReArr: function(arr) {
     return Array.from(new Set(arr));
+  },
+  maxArr: function(arr) {
+    return Math.max.apply(null, arr);
   }
 }
 
@@ -24,4 +27,5 @@ var test = {
 // dateToDate
 // console.log(test.dateToDate(new Date()));
 // console.log(test.dateToTime(new Date()));
-console.log(test.changeReArr([1,2,3,4,3,1,2,44,21]));
+// console.log(test.changeReArr([1,2,3,4,3,1,2,44,21]));
+console.log(test.maxArr([1,2,3,4,3,1,2,44,21]));
