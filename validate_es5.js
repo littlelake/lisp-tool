@@ -1,55 +1,59 @@
-class Validate {
+var Validate = {
   // 验证手机号码是否正确
-  isPhone = (text) => {
+  isPhone: function (text) {
     // 如果text为空
     if (text) return;
 
     const reg = /^(139|176)[0-9]{8}$/;
     return reg.test(text);
-  }
+  },
 
   // new Date转化为yyyy-MM-dd HH:mm:ss
-  dateToFormat = (date) => {
+  dateToFormat: function (date) {
     return date.toLocaleString('zh-CN', {
         hour12: false
       })
       .replace(/\//g, '-').replace(/\b\d\b/g, '0$&');
-  }
+  },
 
   // new Date转化为yyyy-MM-dd
-  dateToDate = (date) => {
+  dateToDate: function (date) {
     return this.dateToFormat(date).split(' ')[0];
-  }
+  },
 
   // new Date转化为HH:mm:ss
-  dateToTime = (date) => {
+  dateToTime: function (date) {
     return this.dateToFormat(date).split(' ')[1];
-  }
+  },
 
   // 日期转化为毫秒数
-  forMatToTime = (date) => {
+  forMatToTime: function (date) {
     return new Date(date).getTime();
-  }
+  },
 
   // 数组去重
-  changrReArr = (arr) => {
-    return Array.from(new Set(arr));
-    // 或者 return [...new Set(arr)];
-  }
+  changeReArr: function (arr) {
+    let newArr = [];
+    if (!arr.length) return [];
+
+    arr.forEach(function (item, index) {
+      newArr.indexOf(item) > -1 ? '' : newArr.push(item);
+    });
+
+    return newArr;
+  },
 
   // 数组排序，升序
-  orderArr = (arr) => {
+  orderArr: function (arr) {
     arr.sort((a, b) => {
       return a - b;
     });
-  }
+  },
 
   // 数组中的最大值
-  maxArr = (arr) => {
+  maxArr: function (arr) {
     return Math.max(...arr);
     // 或者return Math.max.apply(null, arr);
   }
 
 }
-
-export default new Validate;
