@@ -1,0 +1,36 @@
+// css 翻转动画
+.flip-wrap {
+    width: 320px;
+    height: 427px;
+    perspective: 1000;
+    .flip {
+        transition: .6s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+    .flip-item {
+        width: 320px;
+        height: 427px;
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        .flip-item-front {
+            background-color: #09f;
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+        .flip-item-back {
+            background-color: #449d44;
+            z-index: 1;
+            transform: rotateY(180deg);
+        }
+    }
+    &:hover .flip {
+        transform: rotateY(180deg);
+    }
+}
