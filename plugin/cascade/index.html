@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cascade</title>
+</head>
+
+<body>
+  <div id="cascade">
+    <select class="prov"></select>
+    <select class="city"></select>
+    <select class="dist"></select>
+  </div>
+  <button id="setValue">设置值</button>
+  <button id="getValue">获取值</button>
+
+  <script src="./jquery.min.js"></script>
+  <script src="./cascade.js"></script>
+  <script>
+    $(function () {
+      $('#cascade').cascade({});
+
+      $('#setValue').click(function () {
+        $('#cascade').cascade({
+          prov: '广东',
+          city: '广州',
+          dist: '越秀区'
+        });
+      });
+
+      $('#getValue').click(function () {
+        var prov = $('.prov').val();
+        var city = $('.city').val();
+        var dist = $('.dist').val();
+
+        console.log(prov, city, dist);
+      });
+    });
+  </script>
+</body>
+
+</html>
