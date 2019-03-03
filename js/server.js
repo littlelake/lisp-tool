@@ -50,7 +50,16 @@ http.createServer(function (req, res) {
           }
 
           if (files.isDirectory()) {
-            console.log('directory');
+            // 展示出文件夹中所有的文件
+            fs.readdir(filename, function (err, files) {
+              if (err) throw err;
+              var itemHtml = '';
+              files.forEach(function (item, index) {
+                itemHtml += `<p><a href="${pathname}/${item}">${item}</a></p>`;
+              });
+              res.writeHead(200, { 'Content-Type': 'text/html' });
+              res.end(itemHtml);
+            })
           }
         })
       }
