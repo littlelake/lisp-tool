@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Let me in</title>
+  <link rel="stylesheet" href="css/default.css" />
+  <link rel="stylesheet" href="css/component.css" />
+</head>
+
+<body>
+  <div class="md-modal md-effect">
+    <div class="md-content">
+      <h3>Modal Dialog</h3>
+      <div>
+        <p>This is a modal window. You can do the following things with it:</p>
+        <ul>
+          <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read
+            what they say.</li>
+          <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate
+            its presence.</li>
+          <li><strong>Close:</strong> click on the button below to close the modal.</li>
+        </ul>
+        <button class="md-close">Close me!</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>Nifty Modal Window Effects <span>Some inspiration for different modal window appearances</span></h1>
+    </header>
+    <div class="main clearfix">
+      <div class="column">
+        <button class="md-trigger md-setperspective" data-modal="modal-in">Let me in</button>
+      </div>
+    </div>
+  </div><!-- /container -->
+  <div class="md-overlay"></div><!-- the overlay element -->
+  <script>
+    window.onload = function () {
+      var docEl = document.documentElement;
+      var mdEffect = document.querySelector('.md-effect');
+      var mdClose = document.querySelector('.md-close');
+      var mdModal = document.querySelector('.md-setperspective');
+      mdModal.addEventListener('click', function () {
+        docEl.classList.add('md-perspective');
+        mdEffect.classList.add('md-show');
+      });
+      mdClose.addEventListener('click', function () {
+        if (docEl.className.indexOf('md-perspective') > -1) {
+          docEl.classList.remove('md-perspective');
+          mdEffect.classList.remove('md-show');
+        }
+      });
+
+    }
+  </script>
+</body>
+
+</html>
